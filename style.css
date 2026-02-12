@@ -1,0 +1,295 @@
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+    --primary-color: #ff4757;
+    --secondary-color: #ff6b6b;
+    --accent-color: #ff8fa3;
+    --bg-gradient: linear-gradient(135deg, #ff6b9d 0%, #c94b6e 50%, #d88edd 100%);
+    --glass-bg: rgba(255, 255, 255, 0.25);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    --text-color: #2d3436;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(-45deg, #f76186, #ffb199, #fa7cd8, #bd6bf4);
+    background-size: 400% 400%;
+    animation: romanticGradient 12s ease infinite;
+    color: var(--text-color);
+    overscroll-behavior: none;
+    touch-action: none;
+}
+
+@keyframes romanticGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(110vh) rotate(0deg) scale(0.8);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-20vh) rotate(360deg) scale(1.2);
+        opacity: 0;
+    }
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.8) translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+
+    14% {
+        transform: scale(1.1);
+    }
+
+    28% {
+        transform: scale(1);
+    }
+
+    42% {
+        transform: scale(1.1);
+    }
+
+    70% {
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse-ring {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 71, 87, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 20px rgba(255, 71, 87, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 71, 87, 0);
+    }
+}
+
+.background-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.floating-heart {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.9);
+    animation: float linear infinite;
+    user-select: none;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    font-size: 2rem;
+}
+
+.card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    padding: 2rem 3rem;
+    border-radius: 24px;
+    box-shadow: var(--glass-shadow);
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+    position: relative;
+    z-index: 10;
+    animation: popIn 1s cubic-bezier(0.19, 1, 0.22, 1);
+    touch-action: none;
+    user-select: none;
+}
+
+.heart-icon {
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+    animation: heartbeat 1.5s ease-in-out infinite both;
+    filter: drop-shadow(0 0 15px rgba(255, 71, 87, 0.4));
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    color: var(--primary-color);
+    font-size: 3.2rem;
+    margin: 0 0 0.5rem;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#valentineName {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.8rem;
+    margin: 1rem 0;
+    line-height: 1.2;
+    background: linear-gradient(45deg, var(--primary-color), #ff9a9e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.message {
+    color: var(--text-color);
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.love-note {
+    font-size: 1.25rem;
+    margin: 2rem 0;
+    color: #4a4a4a;
+    font-weight: 500;
+}
+
+.signature {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-top: 2.5rem;
+    font-size: 1.4rem;
+    font-family: 'Dancing Script', cursive;
+}
+
+.music-control {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+#musicBtn {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#musicBtn:hover {
+    transform: scale(1.15) rotate(15deg);
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25);
+}
+
+#musicBtn.playing {
+    animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 2rem 1.25rem;
+        width: 85%;
+        margin: 1rem auto;
+        max-width: none;
+        left: 0;
+        right: 0;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    #valentineName {
+        font-size: 2.8rem;
+        line-height: 1.1;
+    }
+
+    .love-note {
+        font-size: 1rem;
+        margin: 1.5rem 0;
+    }
+
+    .signature {
+        font-size: 1.2rem;
+        margin-top: 2rem;
+    }
+
+    .music-control {
+        top: 10px;
+        right: 10px;
+    }
+
+    #musicBtn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 350px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    #valentineName {
+        font-size: 2.2rem;
+    }
+
+    .card {
+        padding: 2rem 1rem;
+    }
+}
